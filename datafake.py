@@ -4,6 +4,14 @@ from list import *
 class DataFake():
 
     def RandomOneName():
+        """Devuelve un nombre aleatoreamente en el siguiente formato:
+        nombre apellido apellido
+        
+        Returns
+        -------
+        name : str
+            Cadena que contiene el nombre generado
+        """
         sex = random.choice(['male', 'female'])
         if sex == 'male':
             name = random.choice(name_m) + " " +random.choice(last_names) + " " + random.choice(last_names)
@@ -13,6 +21,14 @@ class DataFake():
             return name.title()
         
     def RandomTwoName():
+        """Devuelve un nombre aleatoreamente en el siguiente formato:
+        nombre nombre apellido apellido
+        
+        Returns
+        -------
+        name : str
+            Cadena que contiene el nombre generado
+        """
         sex = random.choice(['male', 'female'])
         if sex == 'male':
             name = random.choice(name_m) + " " + random.choice(name_m) + " " +random.choice(last_names) + " " + random.choice(last_names)
@@ -22,6 +38,15 @@ class DataFake():
             return name.title()
         
     def RandomName():
+        """Devuelve un nombre aleatoreamente de los siguientes formatos:
+        nombre nombre apellido apellido
+        nombre apellido apellido
+        
+        Returns
+        -------
+        name : str
+            Cadena que contiene el nombre generado
+        """
         name_length = random.choice([1, 2])
         if name_length == 1:
             name = DataFake.RandomOneName()
@@ -32,14 +57,30 @@ class DataFake():
             print(name.center(50, '*'))
             return name
     
-    def checkSex(name):
+    def CheckSex(name):
+        """Devuelve el genero del nombre proporcionado. Esta funcion solo funciona
+        con los nombres generados por las funciones:
+        RandomOneName()
+        RandomTwoName()
+        RandomName()
+        
+        Returns
+        -------
+        sex : str
+            Cadena que contiene el sexo del nombre proporcionado puede ser:
+            male
+            female
+        """
         name_list = name.split(' ')
         if name_list[0].upper() in name_m:
             return 'male'
         elif name_list[0].upper() in name_f:
             return 'female'
         else:
-            return 'El nombre no esta en la lista, si quieres un sexo random utiliza: '
+            return 'El nombre no esta en la lista, si quieres un sexo random utiliza: RandomSex'
+        
+    def RandomSex():
+        return random.choice(['male', 'female'])
         
     def RandomEmail(nombre):
         """Devuelve un email al pasarle un nombre
@@ -50,7 +91,7 @@ class DataFake():
         Returns
         -------
         email : str
-            Cadena que contiene el emial generado
+            Cadena que contiene el email generado
         """
         servers = [
             'gmail',
@@ -122,7 +163,7 @@ class DataFake():
         Returns
         -------
         email : str
-            Cadena que contiene el emial generado
+            Cadena que contiene el email generado
         """
         list_name = nombre.split(' ')
         num_name = len(list_name)
@@ -171,17 +212,31 @@ class DataFake():
 
 
 if __name__ == '__main__':
+    male = []
+    female = []
     data = DataFake
     x = 0
     while x != 100:
         nombreRandom = data.RandomName()
+        nombreOne = data.RandomOneName()
+        nombreTwo = data.RandomTwoName()
         email = data.RandomEmail(nombreRandom)
         emailPersonalizado = data.PersonalizedEmail(nombreRandom, 'outlook.com')
-        sex = data.checkSex(nombreRandom)
+        sex = data.CheckSex(nombreRandom)
+        sexRandom = data.RandomSex()
         print("".center(50, '-'))
         print(email)
         print(emailPersonalizado)
         print(nombreRandom)
+        print(nombreOne)
+        print(nombreTwo)
         print(sex)
         print("".center(50, '-'))
+        print(sexRandom)
+        if sexRandom == 'male':
+            male.append(sexRandom)
+        else:
+            female.append(sexRandom)
         x += 1
+print(f'Male = {len(male)}')
+print(f'Male = {len(female)}')
