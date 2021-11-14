@@ -1,7 +1,7 @@
 import random
-from list import *
+from .list import *
 
-class DataFake():
+class FakeData:
 
     def RandomOneName():
         """Devuelve un nombre aleatoreamente en el siguiente formato:
@@ -58,12 +58,10 @@ class DataFake():
         """
         name_length = random.choice([1, 2])
         if name_length == 1:
-            name = DataFake.RandomOneName()
-            print(name.center(50, '*'))
+            name = FakeData.RandomOneName()
             return name
         elif name_length == 2:
-            name = DataFake.RandomTwoName()
-            print(name.center(50, '*'))
+            name = FakeData.RandomTwoName()
             return name
     
     def CheckSex(name):
@@ -218,10 +216,18 @@ class DataFake():
             user = (first_name).lower()
             email = user + '@' + servidor_web
             return email
-
+        
+    def RandomTel():
+        tel = []
+        new_tel = ''
+        x = 0
+        while x!= 10:
+            new_tel += str(random.choice(range(0,10)))
+            x += 1
+        return new_tel
 
 if __name__ == '__main__':
-    data = DataFake
+    data = FakeData
     x = 0
     while x != 100:
         nombreRandom = data.RandomName()
@@ -233,6 +239,7 @@ if __name__ == '__main__':
         email = data.RandomEmail(nombreRandom)
         emailPersonalizado = data.PersonalizedEmail(nombreRandom, 'outlook.com')
         sexRandom = data.RandomSex()
+        tel = data.RandomTel()
         print("".center(50, '-'))
         print(f'Nombre ramdom: {nombreRandom}')
         print(f'Email random: {email}')
@@ -243,6 +250,7 @@ if __name__ == '__main__':
         print(f'Dos nombre: {nombreTwo}')
         print(f'Sexo Two: {sexTwo}')
         print(f'Sexo Random: {sexRandom}')
+        print(f'Telefono: {tel}')
         print("".center(50, '-'))
         x += 1
         
