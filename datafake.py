@@ -14,10 +14,10 @@ class DataFake():
         """
         sex = random.choice(['male', 'female'])
         if sex == 'male':
-            name = random.choice(name_m) + " " +random.choice(last_names) + " " + random.choice(last_names)
+            name = random.choice(name_m) + " " + random.choice(last_names) + " " + random.choice(last_names)
             return name.title()
         elif sex == 'female':
-            name = random.choice(name_f) + " " +random.choice(last_names) + " " + random.choice(last_names)
+            name = random.choice(name_f) + " " + random.choice(last_names) + " " + random.choice(last_names)
             return name.title()
         
     def RandomTwoName():
@@ -35,6 +35,15 @@ class DataFake():
             return name.title()
         elif sex == 'female':
             name = random.choice(name_f) + " " + random.choice(name_f) + " " +random.choice(last_names) + " " + random.choice(last_names)
+            return name.title()
+        
+    def RandomUSAName():
+        sex = random.choice(['male', 'female'])
+        if sex == 'male':
+            name = random.choice(name_m) + " " + random.choice(name_m) + " " +random.choice(last_names)
+            return name.title()
+        elif sex == 'female':
+            name = random.choice(name_f) + " " + random.choice(name_f) + " " +random.choice(last_names)
             return name.title()
         
     def RandomName():
@@ -212,31 +221,29 @@ class DataFake():
 
 
 if __name__ == '__main__':
-    male = []
-    female = []
     data = DataFake
     x = 0
     while x != 100:
         nombreRandom = data.RandomName()
+        sex = data.CheckSex(nombreRandom)
         nombreOne = data.RandomOneName()
+        sexOne = data.CheckSex(nombreOne)
         nombreTwo = data.RandomTwoName()
+        sexTwo = data.CheckSex(nombreTwo)
         email = data.RandomEmail(nombreRandom)
         emailPersonalizado = data.PersonalizedEmail(nombreRandom, 'outlook.com')
-        sex = data.CheckSex(nombreRandom)
         sexRandom = data.RandomSex()
         print("".center(50, '-'))
-        print(email)
-        print(emailPersonalizado)
-        print(nombreRandom)
-        print(nombreOne)
-        print(nombreTwo)
-        print(sex)
+        print(f'Nombre ramdom: {nombreRandom}')
+        print(f'Email random: {email}')
+        print(f'Sexo : {sex}')
+        print(f'Email personalizado: {emailPersonalizado}')
+        print(f'Un solo nombre: {nombreOne}')
+        print(f'Sexo One: {sexOne}')
+        print(f'Dos nombre: {nombreTwo}')
+        print(f'Sexo Two: {sexTwo}')
+        print(f'Sexo Random: {sexRandom}')
         print("".center(50, '-'))
-        print(sexRandom)
-        if sexRandom == 'male':
-            male.append(sexRandom)
-        else:
-            female.append(sexRandom)
         x += 1
-print(f'Male = {len(male)}')
-print(f'Male = {len(female)}')
+        
+
