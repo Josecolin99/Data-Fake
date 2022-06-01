@@ -7,5 +7,5 @@ fakedata/lista.py
 fakedata.egg-info/PKG-INFO
 fakedata.egg-info/SOURCES.txt
 fakedata.egg-info/dependency_links.txt
-fakedata.egg-info/requires.txt
+fakedata.egg-info/entry_points.txt
 fakedata.egg-info/top_level.txt

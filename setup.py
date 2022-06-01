@@ -1,11 +1,10 @@
-import imp
 from pathlib import Path
 from setuptools import setup
 
 this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
-VERSION = '0.2'
+VERSION = '0.4.1'
 DESCRIPTION = 'A python package for data fake generation'
 PACKAGE_NAME = 'fakedata'
 AUTHOR = 'Jose Angel Colin Najera'
@@ -15,6 +14,10 @@ GITHUB_URL = 'https://github.com/Josecolin99/FakeData'
 setup(
     name = PACKAGE_NAME,
     packages = [PACKAGE_NAME],
+    entry_points={
+        "console_scripts":
+            ["fakedata=fakedata.__main__:main"]
+    },
     version = VERSION,
     license='MIT',
     description = DESCRIPTION,
