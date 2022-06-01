@@ -4,7 +4,7 @@ from setuptools import setup
 this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
-VERSION = '0.4.1'
+VERSION = '0.4.3'
 DESCRIPTION = 'A python package for data fake generation'
 PACKAGE_NAME = 'fakedata'
 AUTHOR = 'Jose Angel Colin Najera'
