@@ -1,5 +1,5 @@
 import random
-from .list import *
+import fakedata.lista as lista
 
 class FakeData:
 
@@ -14,10 +14,10 @@ class FakeData:
         """
         sex = random.choice(['male', 'female'])
         if sex == 'male':
-            name = random.choice(name_m) + " " + random.choice(last_names) + " " + random.choice(last_names)
+            name = random.choice(lista.name_m) + " " + random.choice(lista.last_names) + " " + random.choice(lista.last_names)
             return name.title()
         elif sex == 'female':
-            name = random.choice(name_f) + " " + random.choice(last_names) + " " + random.choice(last_names)
+            name = random.choice(lista.name_f) + " " + random.choice(lista.last_names) + " " + random.choice(lista.last_names)
             return name.title()
         
     def RandomTwoName():
@@ -31,19 +31,19 @@ class FakeData:
         """
         sex = random.choice(['male', 'female'])
         if sex == 'male':
-            name = random.choice(name_m) + " " + random.choice(name_m) + " " +random.choice(last_names) + " " + random.choice(last_names)
+            name = random.choice(lista.name_m) + " " + random.choice(lista.name_m) + " " +random.choice(lista.last_names) + " " + random.choice(lista.last_names)
             return name.title()
         elif sex == 'female':
-            name = random.choice(name_f) + " " + random.choice(name_f) + " " +random.choice(last_names) + " " + random.choice(last_names)
+            name = random.choice(lista.name_f) + " " + random.choice(lista.name_f) + " " +random.choice(lista.last_names) + " " + random.choice(lista.last_names)
             return name.title()
         
     def RandomUSAName():
         sex = random.choice(['male', 'female'])
         if sex == 'male':
-            name = random.choice(name_m) + " " + random.choice(name_m) + " " +random.choice(last_names)
+            name = random.choice(lista.name_m) + " " + random.choice(lista.name_m) + " " +random.choice(lista.last_names)
             return name.title()
         elif sex == 'female':
-            name = random.choice(name_f) + " " + random.choice(name_f) + " " +random.choice(last_names)
+            name = random.choice(lista.name_f) + " " + random.choice(lista.name_f) + " " +random.choice(lista.last_names)
             return name.title()
         
     def RandomName():
@@ -79,9 +79,9 @@ class FakeData:
             female
         """
         name_list = name.split(' ')
-        if name_list[0].upper() in name_m:
+        if name_list[0].upper() in lista.name_m:
             return 'male'
-        elif name_list[0].upper() in name_f:
+        elif name_list[0].upper() in lista.name_f:
             return 'female'
         else:
             return 'El nombre no esta en la lista, si quieres un sexo random utiliza: RandomSex'
@@ -104,7 +104,7 @@ class FakeData:
             'gmail',
             'outlook',
             'yahoo',
-
+            'yopmail'
         ]
         dot = [
             '.com',
